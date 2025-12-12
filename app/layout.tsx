@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Syne } from "next/font/google";
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import NavBar from "@/components/layout/NavBar";
@@ -7,7 +8,11 @@ import Footer from "@/components/layout/Footer";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const syne = Syne({ subsets: ["latin"], variable: "--font-syne" });
+const clash = localFont({
+  src: "./fonts/ClashDisplay-Variable.woff2",
+  variable: "--font-clash",
+  weight: "200 700",
+});
 
 export const metadata: Metadata = {
   title: "WaterPlane | Digital Growth Partner",
@@ -21,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.variable, syne.variable, "bg-black text-white antialiased font-sans")}>
+      <body className={cn(inter.variable, clash.variable, "bg-black text-white antialiased font-sans")}>
         <SmoothScroll>
           <NavBar />
           <main>
