@@ -21,8 +21,15 @@ export default function AboutPage() {
                 </header>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-32">
-                    <div className="relative h-[500px] w-full rounded-3xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
-                        <Image src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop" alt="Team working" fill className="object-cover" />
+                    <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl -rotate-1 hover:rotate-0 transition-all duration-500 border border-white/10">
+                        <Image
+                            src="/journey.jpg"
+                            alt="WaterPlane Journey"
+                            width={1200}
+                            height={800}
+                            className="w-full h-auto"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                        />
                     </div>
                     <div>
                         <h2 className="text-3xl font-bold font-heading mb-6">The Journey</h2>

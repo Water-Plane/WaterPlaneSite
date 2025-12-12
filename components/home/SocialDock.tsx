@@ -2,6 +2,7 @@
 import React from 'react';
 import TextReveal from '@/components/ui/TextReveal';
 import SocialCard from './SocialCard';
+import SocialWidget from './SocialWidget';
 
 export default function SocialDock() {
     return (
@@ -16,31 +17,12 @@ export default function SocialDock() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    <SocialCard
-                        platform="instagram"
-                        handle="@waterplane.in"
-                        link="#"
-                        followers="12.5K"
-                        bio="Helping brands scale. 🚀 Offline to Online. #WaterPlane"
-                        className="md:-rotate-3 translate-y-4 z-10 hover:z-20 hover:scale-105"
-                    />
-                    <SocialCard
-                        platform="course"
-                        handle="@waterplanedives"
-                        link="#"
-                        followers="Active Community"
-                        bio="Learn the secrets of the New Internet. AI, Content, Growth."
-                        className="z-10 hover:z-20 hover:scale-105"
-                    />
-                    <SocialCard
-                        platform="linkedin"
-                        handle="WaterPlane Agency"
-                        link="#"
-                        followers="5K"
-                        bio="The Digital Growth Partner for the New Internet. Hiring now."
-                        className="md:rotate-3 translate-y-4 z-10 hover:z-20 hover:scale-105"
-                    />
+                <SocialWidget />
+
+                <div className="mt-12 text-center">
+                    <p className="text-sm text-neutral-400">
+                        Find us on <a href="https://www.linkedin.com/company/waterplane" className="underline hover:text-black dark:hover:text-white transition-colors">LinkedIn</a> and <a href="https://instagram.com/waterplane.in" className="underline hover:text-black dark:hover:text-white transition-colors">Instagram</a>.
+                    </p>
                 </div>
             </div>
         </section>

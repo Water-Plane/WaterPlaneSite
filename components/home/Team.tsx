@@ -5,12 +5,12 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils'; // Assuming you have a cn utility
 
 const team = [
-    { name: "Harshit Tiwari", role: "Co-CEO & CTO", bio: "Defines tech vision, AI workflows, technical roadmap.", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" },
-    { name: "Vansh Dixit", role: "Co-CEO & Director, Social", bio: "GTM vision, brand narrative, client services.", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000&auto=format&fit=crop" },
-    { name: "Praneet Kaur", role: "Director, Growth", bio: "New business, CRM discipline, pipeline velocity.", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop" },
-    { name: "Amrita Chaurasiya", role: "Director, Brand Ops", bio: "Brand consistency, SOP library, QA.", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop" },
-    { name: "Vikhyat Chaudhary", role: "Director, Outreach", bio: "Personalized pitches, lead conversion.", image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1000&auto=format&fit=crop" },
-    { name: "Ansh Verma", role: "Video Editor, Dives", bio: "Visual architect, high-retention editing.", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop" },
+    { name: "Harshit Tiwari", role: "Co-CEO & CTO", bio: "Defines tech vision, AI workflows, technical roadmap.", image: "/team/Harshit.png" },
+    { name: "Vansh Dixit", role: "Co-CEO & Director, Social", bio: "GTM vision, brand narrative, client services.", image: "/team/Vansh.png" },
+    { name: "Praneet Kaur", role: "Director, Growth", bio: "New business, CRM discipline, pipeline velocity.", image: "/team/Praneet.png" },
+    { name: "Amrita Chaurasiya", role: "Director, Brand Ops", bio: "Brand consistency, SOP library, QA.", image: "/team/Amrita.png" },
+    { name: "Vikhyat Chaudhary", role: "Director, Outreach", bio: "Personalized pitches, lead conversion.", image: "/team/Vikhyat.png" },
+    { name: "Ansh Verma", role: "Video Editor, Dives", bio: "Visual architect, high-retention editing.", image: "/team/Ansh.png" },
 ];
 
 export default function Team() {

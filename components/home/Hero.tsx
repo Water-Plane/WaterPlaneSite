@@ -51,8 +51,9 @@ export default function Hero() {
             </div>
 
 
-            <div className="container mx-auto flex flex-col items-center text-center z-10">
-                <div className="mb-8 relative w-48 h-12 md:w-64 md:h-16">
+            <div className="container mx-auto flex flex-col items-center text-center z-10 w-full">
+                {/* Logo Container - Scaled to be dominant */}
+                <div className="mb-14 relative w-[80vw] h-[25vw] md:w-[950px] md:h-[240px]">
                     <Image
                         src="/logos/waterplane-white_text_blackBG.svg"
                         alt="WaterPlane"
@@ -69,7 +70,7 @@ export default function Hero() {
                     />
                 </div>
 
-                <h1 className="text-[10vw] md:text-[6vw] leading-[0.9] font-black font-heading tracking-tighter mb-8 text-neutral-950 dark:text-neutral-100">
+                <h1 className="text-[10vw] md:text-[6vw] leading-[0.9] font-black font-heading tracking-wide mb-8 text-neutral-950 dark:text-neutral-100">
                     <TextReveal>DIGITAL GROWTH</TextReveal>
                     <br />
                     <TextReveal delay={0.2}>FOR THE NEW INTERNET</TextReveal>
