@@ -1,41 +1,98 @@
 "use client";
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import TextReveal from '@/components/ui/TextReveal';
 import MagneticButton from '@/components/ui/MagneticButton';
 import { ArrowDownRight } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Hero() {
+    const { scrollY } = useScroll();
+    const logoScale = useTransform(scrollY, [0, 500], [1, 1.5]);
+    const logoOpacity = useTransform(scrollY, [0, 300], [0.1, 0]);
+
     return (
         <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-black text-black dark:text-white px-4">
-            {/* Background Gradient / Fluid Effect */}
-            <div className="absolute inset-0 bg-gradient-radial from-neutral-200/50 via-white to-white dark:from-neutral-900/50 dark:via-black dark:to-black opacity-40 pointer-events-none" />
+            {/* Immersive Logo Backdrop */}
+            <motion.div
+                style={{ scale: logoScale, opacity: logoOpacity }}
+                className="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
+            >
+                <div className="relative w-[80vw] h-[80vw] md:w-[40vw] md:h-[40vw] opacity-20 dark:opacity-10 blur-3xl">
+                    <Image
+                        src="/logos/waterplane-white_text_blackBG.svg" // Using white logo for dark mode effect primarily, logic handled by CSS blend if needed but simple opacity is safer
+                        alt="WaterPlane Background"
+                        fill
+                        className="hidden dark:block object-contain"
+                    />
+                    <Image
+                        src="/logos/waterplane-black_text_WhiteBG.svg" // Using black logo for light mode
+                        alt="WaterPlane Background"
+                        fill
+                        className="block dark:hidden object-contain"
+                    />
+                </div>
+            </motion.div>
+
+            {/* Main Logo Branding (Front and Center) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] md:w-[30vw] h-[20vh] z-0 opacity-5">
+                <Image
+                    src="/logos/waterplane-white_text_blackBG.svg"
+                    alt="WaterPlane Logo Immersive"
+                    fill
+                    className="hidden dark:block object-contain"
+                />
+                <Image
+                    src="/logos/waterplane-black_text_WhiteBG.svg"
+                    alt="WaterPlane Logo Immersive"
+                    fill
+                    className="block dark:hidden object-contain"
+                />
+            </div>
+
 
             <div className="container mx-auto flex flex-col items-center text-center z-10">
-                <h1 className="text-[12vw] md:text-[8vw] leading-[0.9] font-black font-heading tracking-tighter mb-8 text-neutral-950 dark:text-neutral-100">
-                    <TextReveal>THE DIGITAL</TextReveal>
+                <div className="mb-8 relative w-48 h-12 md:w-64 md:h-16">
+                    <Image
+                        src="/logos/waterplane-white_text_blackBG.svg"
+                        alt="WaterPlane"
+                        fill
+                        className="hidden dark:block object-contain"
+                        priority
+                    />
+                    <Image
+                        src="/logos/waterplane-black_text_WhiteBG.svg"
+                        alt="WaterPlane"
+                        fill
+                        className="block dark:hidden object-contain"
+                        priority
+                    />
+                </div>
+
+                <h1 className="text-[10vw] md:text-[6vw] leading-[0.9] font-black font-heading tracking-tighter mb-8 text-neutral-950 dark:text-neutral-100">
+                    <TextReveal>DIGITAL GROWTH</TextReveal>
                     <br />
-                    <TextReveal delay={0.2}>GROWTH PARTNER</TextReveal>
+                    <TextReveal delay={0.2}>FOR THE NEW INTERNET</TextReveal>
                 </h1>
 
-                <div className="flex flex-col md:flex-row items-start md:items-center justify-between w-full max-w-4xl mt-10 p-4">
+                <div className="flex flex-col md:flex-row items-center justify-center gap-8 w-full max-w-4xl mt-10 p-4">
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1, duration: 1 }}
-                        className="text-lg md:text-xl font-medium text-neutral-500 max-w-md text-left"
+                        className="text-lg md:text-xl font-medium text-neutral-500 max-w-lg text-center"
                     >
                         We help ambitious brands and creators move from offline to online. Strategy, high-fidelity content, and AI-driven growth.
                     </motion.p>
+                </div>
 
-                    <div className="mt-8 md:mt-0 flex gap-4">
-                        <MagneticButton className="bg-black text-white dark:bg-white dark:text-black flex items-center gap-2">
-                            See What We Do <ArrowDownRight size={18} />
-                        </MagneticButton>
-                        <MagneticButton className="border border-neutral-300 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-900">
-                            Our Work
-                        </MagneticButton>
-                    </div>
+                <div className="mt-8 flex gap-4">
+                    <MagneticButton className="bg-black text-white dark:bg-white dark:text-black flex items-center gap-2 px-8 py-4 text-sm md:text-base">
+                        See What We Do <ArrowDownRight size={18} />
+                    </MagneticButton>
+                    <MagneticButton className="border border-neutral-300 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-900 px-8 py-4 text-sm md:text-base">
+                        Our Work
+                    </MagneticButton>
                 </div>
             </div>
 

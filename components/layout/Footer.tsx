@@ -1,10 +1,19 @@
+import Image from 'next/image';
+
 export default function Footer() {
     return (
         <footer className="relative bg-neutral-950 text-white py-20 overflow-hidden">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
                     <div>
-                        <h3 className="text-2xl font-bold mb-4 font-heading">WaterPlane</h3>
+                        <div className="relative w-48 h-12 mb-6">
+                            <Image
+                                src="/logos/waterplane-white_text_blackBG.svg"
+                                alt="WaterPlane"
+                                fill
+                                className="object-contain object-left"
+                            />
+                        </div>
                         <p className="text-neutral-400 max-w-sm">
                             The Digital Growth Partner for the New Internet. Strategy, content, and AI-driven growth.
                         </p>
@@ -34,11 +43,16 @@ export default function Footer() {
                     <p>Designed & Built by Antigravity</p>
                 </div>
 
-                {/* Giant Text */}
-                <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none opacity-5 select-none">
-                    <h1 className="text-[15rem] leading-none font-heading font-black whitespace-nowrap translate-y-[20%] text-center">
-                        WATERPLANE
-                    </h1>
+                {/* Giant Logo/Text Watermark */}
+                <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none opacity-5 select-none flex justify-center translate-y-[30%]">
+                    <div className="relative w-[120vw] h-[40vh]">
+                        <Image
+                            src="/logos/waterplane-white_text_blackBG.svg"
+                            alt="WaterPlane Watermark"
+                            fill
+                            className="object-contain"
+                        />
+                    </div>
                 </div>
             </div>
         </footer>

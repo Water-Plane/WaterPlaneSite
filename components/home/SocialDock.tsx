@@ -1,33 +1,47 @@
 "use client";
 import React from 'react';
-import { Linkedin, Instagram, MonitorPlay } from 'lucide-react';
+import TextReveal from '@/components/ui/TextReveal';
+import SocialCard from './SocialCard';
 
 export default function SocialDock() {
-    const socials = [
-        { name: "@waterplane.in", icon: Instagram, href: "#", label: "Client" },
-        { name: "@waterplanedives", icon: MonitorPlay, href: "#", label: "Edu" },
-        { name: "LinkedIn", icon: Linkedin, href: "#", label: "B2B" },
-    ];
-
     return (
-        <section className="py-24 flex flex-col items-center justify-center bg-white dark:bg-black">
-            <h2 className="text-3xl font-bold font-heading mb-8">Connect With Us.</h2>
-            <div className="flex gap-4 p-2 bg-neutral-100 dark:bg-neutral-900 rounded-3xl border border-neutral-200 dark:border-neutral-800 shadow-xl">
-                {socials.map((social) => (
-                    <a
-                        key={social.name}
-                        href={social.href}
-                        className="flex flex-col items-center gap-2 p-4 px-6 rounded-2xl hover:bg-white dark:hover:bg-black hover:shadow-lg transition-all duration-300 group"
-                    >
-                        <div className="p-3 bg-white dark:bg-black rounded-full shadow-sm group-hover:scale-110 transition-transform">
-                            <social.icon size={24} />
-                        </div>
-                        <div className="text-center">
-                            <p className="text-sm font-bold">{social.name}</p>
-                            <p className="text-xs text-neutral-500">{social.label}</p>
-                        </div>
-                    </a>
-                ))}
+        <section className="py-32 px-4 bg-neutral-50 dark:bg-black relative overflow-hidden">
+            <div className="container mx-auto">
+                <div className="mb-16 text-center">
+                    <h2 className="text-4xl md:text-6xl font-bold font-heading mb-6">
+                        <TextReveal>STAY CONNECTED.</TextReveal>
+                    </h2>
+                    <p className="text-xl text-neutral-500">
+                        Follow our journey across the digital landscape.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <SocialCard
+                        platform="instagram"
+                        handle="@waterplane.in"
+                        link="#"
+                        followers="12.5K"
+                        bio="Helping brands scale. 🚀 Offline to Online. #WaterPlane"
+                        className="md:-rotate-3 translate-y-4 z-10 hover:z-20 hover:scale-105"
+                    />
+                    <SocialCard
+                        platform="course"
+                        handle="@waterplanedives"
+                        link="#"
+                        followers="Active Community"
+                        bio="Learn the secrets of the New Internet. AI, Content, Growth."
+                        className="z-10 hover:z-20 hover:scale-105"
+                    />
+                    <SocialCard
+                        platform="linkedin"
+                        handle="WaterPlane Agency"
+                        link="#"
+                        followers="5K"
+                        bio="The Digital Growth Partner for the New Internet. Hiring now."
+                        className="md:rotate-3 translate-y-4 z-10 hover:z-20 hover:scale-105"
+                    />
+                </div>
             </div>
         </section>
     );
