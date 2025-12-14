@@ -40,7 +40,7 @@ export default function Footer() {
                 </div>
                 <div className="border-t border-neutral-900 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-neutral-500">
                     <p>&copy; {new Date().getFullYear()} WaterPlane. All rights reserved.</p>
-                    <p>Designed & Built by Antigravity</p>
+
                 </div>
 
                 {/* Giant Logo/Text Watermark */}
