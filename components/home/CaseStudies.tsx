@@ -23,7 +23,7 @@ export default function CaseStudies() {
 
                 <motion.div style={{ x }} className="flex gap-12 px-12 pt-32">
                     {CASE_STUDIES.map((project, i) => (
-                        <div key={i} className="group relative h-[60vh] w-[80vw] md:w-[40vw] flex-shrink-0 overflow-hidden rounded-3xl bg-neutral-900 border border-neutral-800">
+                        <div key={i} className="group relative h-[60vh] w-[85vw] md:w-[60vw] lg:w-[40vw] flex-shrink-0 overflow-hidden rounded-3xl bg-neutral-900 border border-neutral-800">
                             <Link href={`/work/${project.slug}`} className="block h-full w-full">
                                 <motion.div
                                     className="absolute inset-0 scale-110 group-hover:scale-100 transition-transform duration-700"

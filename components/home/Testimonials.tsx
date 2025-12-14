@@ -32,7 +32,7 @@ export default function Testimonials() {
 
                 <motion.div style={{ x }} className="flex gap-12 px-12 pt-32 md:pl-[30vw]">
                     {allTestimonials.map((t, i) => (
-                        <div key={i} className="group relative h-[60vh] w-[80vw] md:w-[40vw] flex-shrink-0 bg-neutral-100 dark:bg-neutral-900 rounded-3xl border border-neutral-200 dark:border-neutral-800 p-8 md:p-12 flex flex-col justify-between">
+                        <div key={i} className="group relative h-[60vh] w-[85vw] md:w-[60vw] lg:w-[40vw] flex-shrink-0 bg-neutral-100 dark:bg-neutral-900 rounded-3xl border border-neutral-200 dark:border-neutral-800 p-8 md:p-12 flex flex-col justify-between">
                             <div className="flex items-start justify-between">
                                 <div className="relative w-16 h-16 rounded-full overflow-hidden border border-neutral-300 dark:border-neutral-700">
                                     <Image src={t.image} alt={t.author} fill className="object-cover" />
