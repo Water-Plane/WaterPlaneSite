@@ -22,11 +22,11 @@ export default function NavBar() {
                 <Link
                     href="/"
                     className={cn(
-                        "relative flex items-center justify-center p-3 rounded-full transition-all duration-300 group hover:bg-white/10",
+                        "relative flex items-center justify-center p-2 rounded-full transition-all duration-300 group hover:bg-white/10",
                         pathname === "/" ? "bg-white/10" : ""
                     )}
                 >
-                    <div className="relative w-6 h-6">
+                    <div className="relative w-8 h-8">
                         <Image
                             src="/logos/waterplane-white_text_blackBG.svg"
                             alt="Home"
