@@ -5,31 +5,26 @@ import { motion } from 'framer-motion';
 const services = [
     {
         title: "Website Development",
-        price: "₹8k + ₹3.5k/yr",
         tagline: "Your 24/7 Digital HQ.",
         details: ["Next.js & React", "CMS Integration", "SEO Optimized", "1 Year Support"]
     },
     {
         title: "Social Media Mgmt",
-        price: "₹6k/mo",
         tagline: "Content that Converts.",
         details: ["3 Reels / Week", "4 Posts / Week", "Community Mgmt", "Monthly Analytics"]
     },
     {
         title: "AI Content Creation",
-        price: "₹1.8k-2k/mo",
         tagline: "Future-Proof Your Feed.",
         details: ["Sora / Veo Generated", "Runway Video", "Viral Formats", "Trendjacking"]
     },
     {
         title: "Content Shoot",
-        price: "Custom",
         tagline: "High-Fidelity Visuals.",
         details: ["Creator Kit Shoot", "Full Studio Production", "Professional Editing", "Color Grading"]
     },
     {
         title: "SEO & Ads",
-        price: "₹20k/mo / ₹10k/mo",
         tagline: "Get Found.",
         details: ["Keyword Strategy", "Technical SEO", "Meta & Google Ads", "ROI Tracking"]
     },
@@ -41,7 +36,7 @@ export default function ServicesPage() {
             <div className="container mx-auto">
                 <header className="mb-24 text-center">
                     <h1 className="text-6xl md:text-9xl font-black font-heading mb-6 tracking-tighter">OUR SERVICES</h1>
-                    <p className="text-xl text-neutral-500">Transparent pricing. Professional execution.</p>
+                    <p className="text-xl text-neutral-500">Professional execution. Tangible results.</p>
                 </header>
 
                 <div className="flex flex-col gap-12">
@@ -71,10 +66,14 @@ export default function ServicesPage() {
                                 </div>
 
                                 <div className="md:text-right">
-                                    <p className="text-3xl font-bold">{service.price}</p>
-                                    <button className="mt-6 px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-neutral-800 transition-colors">
-                                        Book Now
-                                    </button>
+                                    <a
+                                        href="https://cal.com/waterplane"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-block mt-6 px-8 py-4 bg-black text-white rounded-full font-medium hover:bg-neutral-800 transition-colors"
+                                    >
+                                        Get Your Quote
+                                    </a>
                                 </div>
                             </div>
                         </motion.div>
@@ -84,3 +83,4 @@ export default function ServicesPage() {
         </div>
     );
 }
+
