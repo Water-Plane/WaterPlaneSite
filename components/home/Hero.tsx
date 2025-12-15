@@ -88,12 +88,16 @@ export default function Hero() {
                 </div>
 
                 <div className="mt-8 flex gap-4">
-                    <MagneticButton className="bg-black text-white dark:bg-white dark:text-black flex items-center gap-2 px-8 py-4 text-sm md:text-base">
-                        See What We Do <ArrowDownRight size={18} />
-                    </MagneticButton>
-                    <MagneticButton className="border border-neutral-300 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-900 px-8 py-4 text-sm md:text-base">
-                        Our Work
-                    </MagneticButton>
+                    <a href="/services" className="inline-block">
+                        <MagneticButton className="bg-black text-white dark:bg-white dark:text-black flex items-center gap-2 px-8 py-4 text-sm md:text-base">
+                            See What We Do <ArrowDownRight size={18} />
+                        </MagneticButton>
+                    </a>
+                    <a href="/work" className="inline-block">
+                        <MagneticButton className="border border-neutral-300 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-900 px-8 py-4 text-sm md:text-base">
+                            Our Work
+                        </MagneticButton>
+                    </a>
                 </div>
             </div>
 

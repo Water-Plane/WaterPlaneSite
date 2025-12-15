@@ -70,7 +70,9 @@ export default function NavBar() {
                 })}
                 <div className="w-px h-8 bg-white/10 mx-2" />
                 <Link
-                    href="mailto:hello@waterplane.in"
+                    href="https://cal.com/waterplane"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2 bg-white text-black rounded-full font-medium text-sm hover:scale-105 transition-transform"
                 >
                     <Mail size={16} />
