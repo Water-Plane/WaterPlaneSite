@@ -7,6 +7,8 @@ import NavBar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
 import { cn } from "@/lib/utils";
 
+import { PixelCursorTrail } from "@/components/ui/pixel-trail";
+
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const clash = localFont({
   src: "./fonts/ClashDisplay-Variable.woff2",
@@ -27,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.variable, clash.variable, "bg-black text-white antialiased font-sans")}>
+        <PixelCursorTrail />
         <SmoothScroll>
           <NavBar />
           <main>
