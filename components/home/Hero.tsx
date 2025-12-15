@@ -5,6 +5,7 @@ import TextReveal from '@/components/ui/TextReveal';
 import MagneticButton from '@/components/ui/MagneticButton';
 import { ArrowDownRight } from 'lucide-react';
 import Image from 'next/image';
+import { ShaderAnimation } from '@/components/ui/shader-animation';
 
 export default function Hero() {
     const { scrollY } = useScroll();
@@ -13,6 +14,12 @@ export default function Hero() {
 
     return (
         <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-black text-black dark:text-white px-4">
+
+            {/* Shader Animation Background */}
+            <div className="absolute inset-0 z-0">
+                <ShaderAnimation />
+            </div>
+
             {/* Immersive Logo Backdrop */}
             <motion.div
                 style={{ scale: logoScale, opacity: logoOpacity }}
