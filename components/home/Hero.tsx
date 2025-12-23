@@ -5,7 +5,7 @@ import TextReveal from '@/components/ui/TextReveal';
 import MagneticButton from '@/components/ui/MagneticButton';
 import { ArrowDownRight } from 'lucide-react';
 import Image from 'next/image';
-import { ShaderAnimation } from '@/components/ui/shader-animation';
+import ASMRStaticBackground from '@/components/ui/asmr-background';
 
 export default function Hero() {
     const { scrollY } = useScroll();
@@ -15,9 +15,9 @@ export default function Hero() {
     return (
         <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-black text-black dark:text-white px-4">
 
-            {/* Shader Animation Background */}
+            {/* ASMR Static Background */}
             <div className="absolute inset-0 z-0">
-                <ShaderAnimation />
+                <ASMRStaticBackground />
             </div>
 
             {/* Immersive Logo Backdrop */}
