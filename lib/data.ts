@@ -53,11 +53,36 @@ The rebrand gave them a legitimate face. It allowed them to expand their presenc
         author: "Vansh Dixit",
         date: "Dec 15, 2025",
         heroImage: "/images/case-studies/parikshit/cover.jpg",
-        content: `### 1. The Mission
-For Parikshit Events, we needed to capture the energy of the crowd. We utilized dynamic video editing and a high-contrast visual language to bring their events to the screen. The result was a sold-out season.
+        content: `### 1. The Origin
+We didn't meet PSE in a boardroom; we met them in the trenches. We used to volunteer alongside their founders at ground-level events. When they decided to turn that hustle into a legitimate company, we were launching WaterPlane at the same time.
 
-### 2. The Scale
-Shifted immediately from local volunteering to managing **State-Level** corporate events.`,
+They had the logistics down, but they looked like volunteers, not founders. They approached us with a simple request: "Make us look like a company before we open our doors."
+
+### 2. The Pivot: "Legacy" vs. "Strategic"
+Their original name choice was *"Parikshit Legacy Events."* We pushed back hard. "Legacy" sounds old, and the event market is flooded with generic "planners."
+
+We suggested **"Parikshit Strategic Events."** It was a specific gap in the market. It instantly signaled to clients that PSE doesn't just arrange chairs—they engineer experiences. That one word changed them from a "vendor" to a "partner."
+
+### 3. The Visuals
+We needed a logo that looked good on a business card *and* a sweaty crew t-shirt.
+
+- **The Design:** We selected two for different use cases. One was the gold and blue blend concept. And other was **Solid Black**. It’s authoritative, versatile, and looks expensive.
+- **The Symbol:** We blended the letter 'P' with an upward trajectory arrow. Simple visual shorthand for "we take you to the next level."
+
+### 4. The Launch
+We didn't just give them a logo; we built their digital engine. We set up their Instagram and LinkedIn to mirror the new "Strategic" brand voice.
+We managed a **30-day launch sprint** covering:
+
+1. **"Meet the Team"** (Turning faces into founders).
+2. **"Vision"** (Explaining *why* they are strategic).
+3. **"Services"** (Driving immediate sales).
+
+### 5. The Wins
+The new brand removed the "newbie" friction. By looking corporate from Day 1, they bypassed the small gigs entirely.
+
+- **Speed to Lead:** Secured major contracts within **30 days** of the rebrand.
+- **High-Ticket Clients:** Landed **Dainik Jagran** (Jagran Film Festival and Samwaadi ) and **Amity University** (Bhag India Program).
+- **Scale:** Shifted immediately from local volunteering to managing **State-Level** corporate events.`,
         galleryImages: [
             "/images/case-studies/parikshit/footer1.png",
             "/images/case-studies/parikshit/footer2.png"
@@ -143,7 +168,9 @@ This was our first event at this scale and honestly, it was not perfect.
 - **The Fix:** We didn't make excuses or blame the TV vendor. We took the blame. We fixed the stream while the event was happening and managed the crowd so the doctors could keep talking to the parents without interruption.
 
 ### 4. The Result
-Even with the technical issues, the event served its purpose. Parents got their answers and the experts were able to help. We also managed to record the session for their records.`,
+Even with the technical issues, the event served its purpose. Parents got their answers and the experts were able to help. We also managed to record the session for their records.
+
+This project taught us a lot. We learned that event management is less about planning and more about fixing problems on the spot. We made mistakes, but we owned them and got the job done.`,
         galleryImages: [
             "/images/case-studies/shakti/footer1.jpg",
             "/images/case-studies/shakti/footer2.jpg"
@@ -175,7 +202,9 @@ By handing off the digital operations to WaterPlane, Priyanka Studio gained back
 
 **The Metrics:**
 - **Google My Business:** Optimized their listing, resulting in a **40% increase** in search views and local inquiries.
-- **Visual Identity:** Transformed a scattered feed into a cohesive, premium digital portfolio that matches the quality of their cinematography.`,
+- **Visual Identity:** Transformed a scattered feed into a cohesive, premium digital portfolio that matches the quality of their cinematography.
+
+> "WaterPlane didn't just manage our social media; they gave us our time back. We focus on the shoot and the edit, and they ensure it reaches the right audience. It’s a perfect partnership."`,
         galleryImages: [
             "/images/case-studies/priyanka/footer1.png",
             "/images/case-studies/priyanka/footer1.png"
@@ -212,7 +241,10 @@ This partnership went into action during IIT BHU’s Kashiyatra 2025 event.
 - **The Result:** We shot the footage, and Kunal worked his magic on the edit.
 
 ### 4. The Vision
-This is how we want to work with freelancers, firm owners, startups, event companies and many more hustlers. We are building a healthy ecosystem where we back each other up.`,
+This is how we want to work with freelancers, firm owners, startups, event companies and many more hustlers. We are building a healthy ecosystem where we back each other up.
+
+- **Now:** We are already planning coverage for **IIT Guwahati's Alcheringa 2026**.
+- **The System:** When we get a heavy editing project, Kunal steps in and gets a cut. When he needs tech or production support, we step in.`,
         galleryImages: [
             "/images/case-studies/kunal/footer1.png",
             "/images/case-studies/kunal/footer1.png"
