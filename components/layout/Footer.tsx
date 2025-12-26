@@ -31,9 +31,9 @@ export default function Footer() {
                         <div>
                             <h4 className="font-bold mb-4 text-neutral-200">Socials</h4>
                             <ul className="space-y-2 text-neutral-400">
-                                <li><a href="#" className="hover:text-white transition-colors">Instagram</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">LinkedIn</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Twitter/X</a></li>
+                                <li><a href="https://instagram.com/waterplane.in" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a></li>
+                                <li><a href="https://linkedin.com/company/waterplane" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a></li>
+                                <li><a href="https://x.com/waterplanein" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Twitter/X</a></li>
                             </ul>
                         </div>
                     </div>
