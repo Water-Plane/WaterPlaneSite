@@ -77,6 +77,13 @@
     @apply bg-background text-foreground tracking-wider;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+  
+  img {
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: none; /* Disables click/hover unless wrapped or overridden */
+  }
 
   h1,
   h2,

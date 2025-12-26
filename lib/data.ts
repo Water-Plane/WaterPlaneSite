@@ -5,7 +5,7 @@ export const CASE_STUDIES = [
         category: "AI & Strategy",
         author: "Vansh Dixit",
         date: "Dec 15, 2025",
-        heroImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop",
+        heroImage: "/images/case-studies/72-ai/cover.jpg",
         content: `### 1. The Challenge
 72 AI Labs was doing great automation work, but visually, they were just a name. They needed a brand that looked as professional as their code—clean, corporate, and distinct from the usual "blue brain" AI clichés. They wanted a full digital presence that they could show off immediately.
 
@@ -30,14 +30,14 @@ The rebrand gave them a legitimate face. It allowed them to expand their presenc
 - **14+** Happy Clients
 - A consistent, professional digital presence.`,
         galleryImages: [
-            "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1676299081847-824916de030a?q=80&w=1000&auto=format&fit=crop"
+            "/images/case-studies/72-ai/footer1.png",
+            "/images/case-studies/72-ai/footer2.jpg"
         ],
         testimonials: [
             {
                 content: "WaterPlane completely transformed our digital presence. The AI integration was seamless.",
                 author: "Founder, 72 AI Labs",
-                image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop"
+                image: "/images/case-studies/72-ai/testimonial.png"
             },
             {
                 content: "They understand the future of tech like no one else. A true partner.",
@@ -52,21 +52,21 @@ The rebrand gave them a legitimate face. It allowed them to expand their presenc
         category: "Brand Experience",
         author: "Vansh Dixit",
         date: "Dec 15, 2025",
-        heroImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1000&auto=format&fit=crop",
+        heroImage: "/images/case-studies/parikshit/cover.jpg",
         content: `### 1. The Mission
 For Parikshit Events, we needed to capture the energy of the crowd. We utilized dynamic video editing and a high-contrast visual language to bring their events to the screen. The result was a sold-out season.
 
 ### 2. The Scale
 Shifted immediately from local volunteering to managing **State-Level** corporate events.`,
         galleryImages: [
-            "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1000&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=1000&auto=format&fit=crop"
+            "/images/case-studies/parikshit/footer1.png",
+            "/images/case-studies/parikshit/footer2.png"
         ],
         testimonials: [
             {
                 content: "The visuals were stunning. They captured the soul of our events.",
                 author: "Director, Parikshit",
-                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop"
+                image: "/images/case-studies/parikshit/testimonial.png"
             },
             {
                 content: "Ticket sales went up by 40% after the rebrand.",
@@ -81,7 +81,7 @@ Shifted immediately from local volunteering to managing **State-Level** corporat
         category: "Social Impact",
         author: "Harshit Tiwari",
         date: "Dec 15, 2025",
-        heroImage: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?q=80&w=1000&auto=format&fit=crop",
+        heroImage: "/images/case-studies/pukaar/cover.png",
         content: `### 1. The Challenge
 Pukaar is a women's safety startup with a diverse team, including a member currently studying at **IIT Kharagpur**. They had a critical funding pitch coming up on campus in just one week.
 
@@ -102,14 +102,14 @@ We went from concept to code in a week.
 - **The Test:** The panel asked for a beta test phase to validate the app before potential incubation.
 - **The Deal:** Because we delivered under such tight pressure, WaterPlane moved from being just "help" to becoming an **equity partner** in the venture.`,
         galleryImages: [
-            "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1000&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1000&auto=format&fit=crop"
+            "/images/case-studies/pukaar/footer1.jpg",
+            "/images/case-studies/pukaar/footer2.png"
         ],
         testimonials: [
             {
                 content: "WaterPlane helped us reach thousands more people. Vital work.",
                 author: "Founder, Pukaar",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"
+                image: "/images/case-studies/pukaar/testimonial.png"
             },
             {
                 content: "Strategy with a heart. They really care.",
@@ -124,7 +124,7 @@ We went from concept to code in a week.
         category: "Wellness",
         author: "Vansh Dixit",
         date: "Dec 15, 2025",
-        heroImage: "https://images.unsplash.com/photo-1544367563-12123d896889?q=80&w=1000&auto=format&fit=crop",
+        heroImage: "/images/case-studies/shakti/cover.jpg",
         content: `### 1. The Mission
 Shakti Center hosts an annual event called "Ghoshthi." It brings together top doctors and psychologists to help parents of children with physical and mental disabilities. The goal is simple but important. Parents get to ask experts personal questions on how to manage their child's behavior and needs.
 
@@ -145,11 +145,11 @@ This was our first event at this scale and honestly, it was not perfect.
 ### 4. The Result
 Even with the technical issues, the event served its purpose. Parents got their answers and the experts were able to help. We also managed to record the session for their records.`,
         galleryImages: [
-            "https://images.unsplash.com/photo-1599447421405-0c1741427447?q=80&w=1000&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1000&auto=format&fit=crop"
+            "/images/case-studies/shakti/footer1.jpg",
+            "/images/case-studies/shakti/footer2.jpg"
         ],
         testimonials: [
-            { content: "Peaceful and professional.", author: "Owner, Shakti", image: "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1000&auto=format&fit=crop" }
+            { content: "Peaceful and professional.", author: "Owner, Shakti", image: "/images/case-studies/shakti/testimonial.jpg" }
         ]
     },
     {
@@ -158,7 +158,7 @@ Even with the technical issues, the event served its purpose. Parents got their 
         category: "Visual Arts",
         author: "Vansh Dixit",
         date: "Dec 15, 2025",
-        heroImage: "https://images.unsplash.com/photo-1542038784424-48edbb3b5198?q=80&w=1000&auto=format&fit=crop",
+        heroImage: "/images/case-studies/priyanka/cover.png",
         content: `### 1. The Context
 Priyanka Studio was already a success story. As an established name in wedding photography and cinematography, they didn't have a "getting clients" problem; they had a "time" problem.
 
@@ -177,11 +177,11 @@ By handing off the digital operations to WaterPlane, Priyanka Studio gained back
 - **Google My Business:** Optimized their listing, resulting in a **40% increase** in search views and local inquiries.
 - **Visual Identity:** Transformed a scattered feed into a cohesive, premium digital portfolio that matches the quality of their cinematography.`,
         galleryImages: [
-            "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?q=80&w=1000&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1000&auto=format&fit=crop"
+            "/images/case-studies/priyanka/footer1.png",
+            "/images/case-studies/priyanka/footer1.png"
         ],
         testimonials: [
-            { content: "My work looks incredible here.", author: "Priyanka", image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1000&auto=format&fit=crop" }
+            { content: "My work looks incredible here.", author: "Priyanka", image: "/images/case-studies/priyanka/testimonial.png" }
         ]
     },
     {
@@ -190,7 +190,7 @@ By handing off the digital operations to WaterPlane, Priyanka Studio gained back
         category: "Post-Production",
         author: "Vansh Dixit",
         date: "Dec 15, 2025",
-        heroImage: "https://images.unsplash.com/photo-1574717436401-063851898909?q=80&w=1000&auto=format&fit=crop",
+        heroImage: "/images/case-studies/kunal/cover.png",
         content: `### 1. The Context
 Kunal is a college friend and easily one of the best video editors in Lucknow. He already had an amazing Instagram page showcasing his skills, but he wanted to level up. He needed a proper portfolio website to present his work to bigger clients professionally, beyond just an Instagram grid.
 
@@ -214,11 +214,11 @@ This partnership went into action during IIT BHU’s Kashiyatra 2025 event.
 ### 4. The Vision
 This is how we want to work with freelancers, firm owners, startups, event companies and many more hustlers. We are building a healthy ecosystem where we back each other up.`,
         galleryImages: [
-            "https://images.unsplash.com/photo-1535016120720-40c6874c3b13?q=80&w=1000&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=1000&auto=format&fit=crop"
+            "/images/case-studies/kunal/footer1.png",
+            "/images/case-studies/kunal/footer1.png"
         ],
         testimonials: [
-            { content: "Fast, sleek, and sharp.", author: "Kunal", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000&auto=format&fit=crop" }
+            { content: "Fast, sleek, and sharp.", author: "Kunal", image: "/images/case-studies/kunal/testimonial.png" }
         ]
     },
     {
@@ -227,7 +227,7 @@ This is how we want to work with freelancers, firm owners, startups, event compa
         category: "Fashion & Branding",
         author: "Vansh Dixit",
         date: "Dec 15, 2025",
-        heroImage: "https://images.unsplash.com/photo-1523398002811-6c9baa69d3d1?q=80&w=1000&auto=format&fit=crop",
+        heroImage: "/images/case-studies/stitch/cover.png",
         content: `### 1. The Context
 Stitch & Soul is a new streetwear and gothic clothing startup based in Kolkata. They were just launching and initially came to us with a simple, transactional request: *"Can you handle our ads?"*
 
@@ -248,11 +248,11 @@ They saw the value immediately. After the first month, they didn't just renew; t
 ### 4. The Result
 What started as a one-month ad trial turned into a long-term growth partnership. They are determined to grow their brand, and we are right there with them, building it brick by brick.`,
         galleryImages: [
-            "https://images.unsplash.com/photo-1516826957135-700dedea698c?q=80&w=1000&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1000&auto=format&fit=crop"
+            "/images/case-studies/stitch/footer1.jpg",
+            "/images/case-studies/stitch/footer2.png"
         ],
         testimonials: [
-            { content: "More than just ads. They are building our brand with us.", author: "Founder, Stitch & Soul", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop" }
+            { content: "More than just ads. They are building our brand with us.", author: "Founder, Stitch & Soul", image: "/images/case-studies/stitch/testimonial.png" }
         ]
     }
 ];

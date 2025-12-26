@@ -9,6 +9,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import { cn } from "@/lib/utils";
 
 import { PixelCursorTrail } from "@/components/ui/pixel-trail";
+import ImageProtection from "@/components/utils/ImageProtection";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const clash = localFont({
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     template: '%s | WaterPlane',
   },
   description: "Helping ambitious brands and creators move from offline to online. Premier digital agency for web development, AI content, and strategic growth.",
-  keywords: ["WaterPlane", "Digital Agency Lucknow", "Web Development", "AI Content", "Strategic Growth"],
+  keywords: ["WaterPlane", "Digital Agency Lucknow", "Web Development", "AI Content", "Strategic Growth", "Web Develoment services in Lucknow", " How to grow business"],
   openGraph: {
     title: 'WaterPlane | Digital Growth Partner',
     description: "Helping ambitious brands and creators move from offline to online. Premier digital agency for web development, AI content, and strategic growth.",
@@ -51,6 +52,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn(inter.variable, clash.variable, "bg-black text-white antialiased font-sans")}>
         <PixelCursorTrail />
+        <ImageProtection />
         <SmoothScroll>
           <NavBar />
           <main>
