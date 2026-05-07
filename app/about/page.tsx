@@ -2,10 +2,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { TextScramble } from '@/components/ui/text-scramble';
+
+const TEAM = [
+    "Aamin",
+    "Simmi Singh",
+    "Amrita Chaurasia",
+    "Praneet Kaur",
+    "Vansh Dixit",
+    "Vansh Gupta",
+    "Harshit Tiwari",
+];
 
 export default function AboutPage() {
     return (
-        <div className="min-h-screen bg-neutral-950 text-white pt-32 pb-24 px-4">
+        <div className="min-h-screen bg-black text-white pt-32 pb-24 px-4">
             <div className="container mx-auto max-w-5xl">
                 <header className="mb-24 text-center">
                     <motion.h1
@@ -37,12 +48,12 @@ export default function AboutPage() {
                             WaterPlane was born from a simple observation: Great businesses were failing to translate their offline excellence into online dominance.
                         </p>
                         <p className="text-lg text-neutral-400 leading-relaxed">
-                            We bridge that gap. We don't just "post content"—we engineer digital ecosystems. From technical SEO frameworks to cinematic storytelling, we are the architects of the New Internet.
+                            We bridge that gap. We don&apos;t just &ldquo;post content&rdquo;&mdash;we engineer digital ecosystems. From technical SEO frameworks to cinematic storytelling, we are the architects of the New Internet.
                         </p>
                     </div>
                 </div>
 
-                <div className="bg-neutral-900 rounded-3xl p-12 border border-neutral-800">
+                <div className="bg-neutral-900 rounded-3xl p-12 border border-neutral-800 mb-24">
                     <h2 className="text-4xl font-bold font-heading mb-12 text-center">Our Philosophy: The Dual-Track Model</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                         <div className="p-8 bg-black rounded-2xl border border-neutral-800">
@@ -60,6 +71,31 @@ export default function AboutPage() {
                     </div>
                     <div className="mt-12 text-center text-neutral-500 font-mono text-sm">
                         Goal Alignment governed by RACI Model.
+                    </div>
+                </div>
+
+                {/* Team Section */}
+                <div>
+                    <h2 className="text-4xl font-bold font-heading mb-2 text-center">The Squad.</h2>
+                    <p className="text-center text-neutral-500 font-mono text-sm mb-12">The people who make it happen.</p>
+                    <div className="grid grid-cols-1 divide-y divide-neutral-800 border border-neutral-800 rounded-2xl overflow-hidden">
+                        {TEAM.map((name, i) => (
+                            <motion.div
+                                key={name}
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: i * 0.08 }}
+                                className="flex items-center justify-between px-8 py-5 bg-neutral-950 hover:bg-neutral-900 transition-colors group"
+                            >
+                                <TextScramble
+                                    text={name.toUpperCase()}
+                                    textClassName="text-xl md:text-2xl font-light tracking-widest"
+                                />
+                                <span className="text-neutral-700 font-mono text-xs group-hover:text-neutral-400 transition-colors">
+                                    {String(i + 1).padStart(2, '0')}
+                                </span>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </div>
