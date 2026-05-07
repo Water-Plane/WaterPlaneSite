@@ -17,6 +17,7 @@ interface BlogPost {
   content: string;
   tags: string[];
   published: boolean;
+  featured_home: boolean;
 }
 
 const EMPTY: Omit<BlogPost, "id"> = {
@@ -130,6 +131,16 @@ export default function BlogManager() {
     await fetch(`/api/admin/blogs/${id}`, {
       method: "DELETE",
       headers: { "Authorization": `Bearer ${token}` },
+    });
+    await load();
+  }
+
+  async function toggleFeatured(item: BlogPost) {
+    const token = await auth.currentUser?.getIdToken();
+    await fetch(`/api/admin/blogs/${item.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+      body: JSON.stringify({ featured_home: !item.featured_home }),
     });
     await load();
   }
@@ -274,10 +285,20 @@ export default function BlogManager() {
                     }`}>
                       {item.published ? "live" : "draft"}
                     </span>
+                    {item.featured_home && (
+                      <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-white/10 text-white border border-white/20">homepage</span>
+                    )}
                   </div>
                   <p className="text-xs text-neutral-500 font-mono">{item.author} · {item.published_at}</p>
                 </div>
                 <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => toggleFeatured(item)}
+                    title={item.featured_home ? "Remove from homepage" : "Show on homepage"}
+                    className={`p-1 text-base leading-none transition-colors ${item.featured_home ? "text-yellow-400" : "text-neutral-600 hover:text-neutral-300"}`}
+                  >
+                    ★
+                  </button>
                   <button
                     onClick={() => setExpanded(expanded === item.id ? null : item.id)}
                     className="text-neutral-400 hover:text-white p-1"

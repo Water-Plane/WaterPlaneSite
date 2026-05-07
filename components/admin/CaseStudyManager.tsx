@@ -23,6 +23,7 @@ interface CaseStudy {
   content: string;
   gallery_images: string[];
   testimonials: Testimonial[];
+  featured_home: boolean;
 }
 
 type FormData = Omit<CaseStudy, "id">;
@@ -179,6 +180,16 @@ export default function CaseStudyManager() {
     await fetch(`/api/admin/case-studies/${id}`, {
       method: "DELETE",
       headers: { "Authorization": `Bearer ${token}` },
+    });
+    await load();
+  }
+
+  async function toggleFeatured(item: CaseStudy) {
+    const token = await auth.currentUser?.getIdToken();
+    await fetch(`/api/admin/case-studies/${item.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+      body: JSON.stringify({ featured_home: !item.featured_home }),
     });
     await load();
   }
@@ -342,10 +353,22 @@ export default function CaseStudyManager() {
             <div key={item.id} className="bg-neutral-950 border border-neutral-800 rounded-xl overflow-hidden">
               <div className="flex items-center justify-between px-5 py-4">
                 <div>
-                  <p className="font-medium">{item.title}</p>
+                  <div className="flex items-center gap-2">
+                    <p className="font-medium">{item.title}</p>
+                    {item.featured_home && (
+                      <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-white/10 text-white border border-white/20">homepage</span>
+                    )}
+                  </div>
                   <p className="text-xs text-neutral-500 font-mono">{item.category} · {item.date} · {(item.testimonials ?? []).length} testimonial(s)</p>
                 </div>
                 <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => toggleFeatured(item)}
+                    title={item.featured_home ? "Remove from homepage" : "Show on homepage"}
+                    className={`p-1 text-base leading-none transition-colors ${item.featured_home ? "text-yellow-400" : "text-neutral-600 hover:text-neutral-300"}`}
+                  >
+                    ★
+                  </button>
                   <button onClick={() => setExpanded(expanded === item.id ? null : item.id)} className="text-neutral-400 hover:text-white p-1">
                     {expanded === item.id ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                   </button>
