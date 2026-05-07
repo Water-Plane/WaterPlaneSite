@@ -16,12 +16,18 @@ export default function Testimonials({ testimonials }: { testimonials: Testimoni
         target: targetRef,
     });
 
-    const x = useTransform(scrollYProgress, [0, 1], ["1%", "-65%"]);
-
     const allTestimonials = testimonials.slice(0, 6);
+    const count = allTestimonials.length;
+
+    const endX = count <= 2 ? "-30%" : count <= 4 ? "-50%" : "-65%";
+    const x = useTransform(scrollYProgress, [0, 1], ["1%", endX]);
+
+    const sectionHeight = count === 0 ? "0vh" : count <= 2 ? "130vh" : count <= 4 ? "180vh" : "240vh";
+
+    if (count === 0) return null;
 
     return (
-        <section ref={targetRef} className="relative h-[250vh] bg-white dark:bg-black text-black dark:text-white">
+        <section ref={targetRef} className="relative bg-white dark:bg-black text-black dark:text-white" style={{ height: sectionHeight }}>
             <div className="sticky top-0 flex h-screen items-center overflow-hidden">
                 <div className="absolute top-12 left-12 z-10 max-w-md">
                     <h2 className="text-4xl md:text-6xl font-bold font-heading mb-6">Client Feedback.</h2>
