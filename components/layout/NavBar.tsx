@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { LayoutGrid, Info, Mail } from "lucide-react";
+import { LayoutGrid, Info, Mail, BookOpen } from "lucide-react";
 
 export default function NavBar() {
     const pathname = usePathname();
@@ -12,6 +12,7 @@ export default function NavBar() {
     const links = [
         { name: "Services", href: "/services", icon: LayoutGrid },
         { name: "About", href: "/about", icon: Info },
+        { name: "Blogs", href: "/blogs", icon: BookOpen },
     ];
 
     return (
