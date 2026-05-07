@@ -48,7 +48,7 @@ export async function generateMetadata({
   return { title: project.title, description: project.category };
 }
 
-export const revalidate = 60;
+export const revalidate = 0;
 
 export default async function CaseStudyPage({
   params,

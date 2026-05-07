@@ -2,11 +2,16 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
-
 import Link from "next/link";
-import { CASE_STUDIES } from "@/lib/data";
 
-export default function CaseStudies() {
+interface Project {
+    slug: string;
+    title: string;
+    category: string;
+    hero_image: string;
+}
+
+export default function CaseStudies({ projects }: { projects: Project[] }) {
     const targetRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: targetRef,
@@ -22,12 +27,12 @@ export default function CaseStudies() {
                 </div>
 
                 <motion.div style={{ x }} className="flex gap-12 px-12 pt-32">
-                    {CASE_STUDIES.map((project, i) => (
+                    {projects.map((project, i) => (
                         <div key={i} className="group relative h-[60vh] w-[85vw] md:w-[60vw] lg:w-[40vw] flex-shrink-0 overflow-hidden rounded-3xl bg-neutral-900 border border-neutral-800">
                             <Link href={`/work/${project.slug}`} className="block h-full w-full">
                                 <div className="absolute inset-0 scale-110 group-hover:scale-100 transition-transform duration-700">
                                     <Image
-                                        src={project.heroImage}
+                                        src={project.hero_image}
                                         alt={project.title}
                                         fill
                                         className="object-cover grayscale brightness-[0.4] blur-[2px] group-hover:grayscale-0 group-hover:brightness-90 group-hover:blur-0 transition-all duration-700"

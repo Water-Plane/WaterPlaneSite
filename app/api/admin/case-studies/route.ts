@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
 import { verifyAdminToken } from "@/lib/verifyAdmin";
 
@@ -9,5 +10,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const { data, error } = await supabaseAdmin.from("case_studies").insert(body).select().single();
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+    revalidatePath("/");
+    revalidatePath("/work");
     return NextResponse.json(data);
 }

@@ -25,7 +25,7 @@ async function getCaseStudies(): Promise<CaseStudy[]> {
   return data ?? [];
 }
 
-export const revalidate = 60;
+export const revalidate = 0;
 
 export default async function WorkPage() {
   const projects = await getCaseStudies();

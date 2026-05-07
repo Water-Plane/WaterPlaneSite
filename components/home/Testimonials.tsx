@@ -2,9 +2,15 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
-import { CASE_STUDIES } from '@/lib/data';
 
-export default function Testimonials() {
+interface Testimonial {
+    content: string;
+    author: string;
+    image: string;
+    projectTitle: string;
+}
+
+export default function Testimonials({ testimonials }: { testimonials: Testimonial[] }) {
     const targetRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: targetRef,
@@ -12,13 +18,7 @@ export default function Testimonials() {
 
     const x = useTransform(scrollYProgress, [0, 1], ["1%", "-65%"]);
 
-    // Flatten all testimonials into a single array with project context
-    const allTestimonials = CASE_STUDIES.flatMap(project =>
-        project.testimonials.map(t => ({
-            ...t,
-            projectTitle: project.title
-        }))
-    ).slice(0, 6); // Take first 6 for highlighted scroll
+    const allTestimonials = testimonials.slice(0, 6);
 
     return (
         <section ref={targetRef} className="relative h-[250vh] bg-white dark:bg-black text-black dark:text-white">
