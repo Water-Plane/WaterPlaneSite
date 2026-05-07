@@ -90,18 +90,16 @@ export default async function BlogPostPage({
           <span className="text-sm font-mono text-neutral-500">{post.published_at}</span>
         </div>
 
-        <ReactMarkdown
-          className="prose prose-invert prose-lg max-w-none
+        <div className="prose prose-invert prose-lg max-w-none
             prose-headings:font-heading prose-headings:font-bold
             prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl
             prose-p:text-neutral-300 prose-p:leading-relaxed
             prose-strong:text-white
             prose-blockquote:border-l-4 prose-blockquote:border-neutral-600 prose-blockquote:text-neutral-400 prose-blockquote:not-italic
             prose-li:text-neutral-300
-            prose-a:text-white prose-a:underline"
-        >
-          {post.content}
-        </ReactMarkdown>
+            prose-a:text-white prose-a:underline">
+          <ReactMarkdown>{post.content}</ReactMarkdown>
+        </div>
 
         <div className="mt-16 pt-8 border-t border-neutral-800">
           <a

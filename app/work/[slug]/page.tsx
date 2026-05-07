@@ -94,18 +94,16 @@ export default async function CaseStudyPage({
       {/* Content */}
       <section className="py-32 px-4 md:px-12">
         <div className="max-w-3xl mx-auto">
-          <ReactMarkdown
-            className="prose prose-invert prose-lg max-w-none
+          <div className="prose prose-invert prose-lg max-w-none
               prose-headings:font-heading prose-headings:font-bold
               prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl
               prose-p:text-neutral-300 prose-p:leading-relaxed
               prose-strong:text-white
               prose-blockquote:border-l-4 prose-blockquote:border-white prose-blockquote:text-neutral-400 prose-blockquote:not-italic
               prose-li:text-neutral-300
-              prose-a:text-white prose-a:underline"
-          >
-            {project.content}
-          </ReactMarkdown>
+              prose-a:text-white prose-a:underline">
+            <ReactMarkdown>{project.content}</ReactMarkdown>
+          </div>
         </div>
       </section>
 
