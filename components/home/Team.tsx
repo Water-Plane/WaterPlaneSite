@@ -5,12 +5,13 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils'; // Assuming you have a cn utility
 
 const team = [
-    { name: "Harshit Tiwari", role: "Co-CEO & CTO", bio: "Defines tech vision, AI workflows, technical roadmap.", image: "/team/Harshit.png" },
-    { name: "Vansh Dixit", role: "Co-CEO & Director, Social", bio: "GTM vision, brand narrative, client services.", image: "/team/Vansh.png" },
-    { name: "Praneet Kaur", role: "Director, Growth", bio: "New business, CRM discipline, pipeline velocity.", image: "/team/Praneet.png" },
+    { name: "Aamin Simmi Singh", role: "", bio: "", image: "/team/Aamin.png" },
     { name: "Amrita Chaurasiya", role: "Director, Brand Ops", bio: "Brand consistency, SOP library, QA.", image: "/team/Amrita.png" },
-    { name: "Vikhyat Chaudhary", role: "Director, Outreach", bio: "Personalized pitches, lead conversion.", image: "/team/Vikhyat.png" },
     { name: "Ansh Verma", role: "Video Editor, Dives", bio: "Visual architect, high-retention editing.", image: "/team/Ansh.png" },
+    { name: "Harshit Tiwari", role: "Co-CEO & CTO", bio: "Defines tech vision, AI workflows, technical roadmap.", image: "/team/Harshit.png" },
+    { name: "Praneet Kaur", role: "Director, Growth", bio: "New business, CRM discipline, pipeline velocity.", image: "/team/Praneet.png" },
+    { name: "Vansh Dixit", role: "Co-CEO & Director, Social", bio: "GTM vision, brand narrative, client services.", image: "/team/Vansh.png" },
+    { name: "Vikhyat Chaudhary", role: "Director, Outreach", bio: "Personalized pitches, lead conversion.", image: "/team/Vikhyat.png" },
 ];
 
 export default function Team() {
