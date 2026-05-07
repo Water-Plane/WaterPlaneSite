@@ -77,6 +77,7 @@ export default function BlogManager() {
       content: item.content,
       tags: item.tags ?? [],
       published: item.published,
+      featured_home: item.featured_home ?? false,
     });
     setTagsInput((item.tags ?? []).join(", "));
     setCoverFile(null);
