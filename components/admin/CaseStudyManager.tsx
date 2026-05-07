@@ -38,6 +38,7 @@ const EMPTY: FormData = {
   content: "",
   gallery_images: [],
   testimonials: [],
+  featured_home: false,
 };
 
 export default function CaseStudyManager() {
@@ -86,6 +87,7 @@ export default function CaseStudyManager() {
       content: item.content,
       gallery_images: item.gallery_images ?? [],
       testimonials: item.testimonials ?? [],
+      featured_home: item.featured_home ?? false,
     });
     setHeroFile(null);
     setGalleryFiles([]);
