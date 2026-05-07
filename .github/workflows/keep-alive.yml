@@ -1,0 +1,14 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    - cron: "0 8 */3 * *"   # every 3 days at 08:00 UTC
+  workflow_dispatch:          # allow manual trigger
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping keep-alive endpoint
+        run: |
+          curl -sf https://waterplane.in/api/keep-alive || echo "ping failed (non-fatal)"
