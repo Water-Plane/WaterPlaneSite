@@ -5,13 +5,12 @@ import Image from 'next/image';
 import { TextScramble } from '@/components/ui/text-scramble';
 
 const TEAM = [
-    "Aamin",
-    "Simmi Singh",
+    "Aamin Simmi Singh",
     "Amrita Chaurasia",
+    "Harshit Tiwari",
     "Praneet Kaur",
     "Vansh Dixit",
     "Vansh Gupta",
-    "Harshit Tiwari",
 ];
 
 export default function AboutPage() {
