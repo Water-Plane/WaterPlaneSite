@@ -75,7 +75,7 @@ export function TextScramble({ text, className = "", textClassName = "" }: TextS
           <span
             key={i}
             className={`inline-block transition-all duration-150 ${
-              isScrambling && char !== text[i] ? "text-primary scale-110" : "text-foreground"
+              isScrambling && char !== text[i] ? "text-white/50 scale-110" : "text-white"
             }`}
             style={{
               transitionDelay: `${i * 10}ms`,
@@ -89,16 +89,16 @@ export function TextScramble({ text, className = "", textClassName = "" }: TextS
       {/* Animated underline */}
       <span className="relative h-px w-full mt-2 overflow-hidden">
         <span
-          className={`absolute inset-0 bg-foreground transition-transform duration-500 ease-out origin-left ${
+          className={`absolute inset-0 bg-white transition-transform duration-500 ease-out origin-left ${
             isHovering ? "scale-x-100" : "scale-x-0"
           }`}
         />
-        <span className="absolute inset-0 bg-border" />
+        <span className="absolute inset-0 bg-white/20" />
       </span>
 
       {/* Subtle glow on hover */}
       <span
-        className={`absolute -inset-4 rounded-lg bg-primary/5 transition-opacity duration-300 -z-10 ${
+        className={`absolute -inset-4 rounded-lg bg-white/5 transition-opacity duration-300 -z-10 ${
           isHovering ? "opacity-100" : "opacity-0"
         }`}
       />
