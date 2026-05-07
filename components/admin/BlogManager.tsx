@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { uploadToCloudinary } from "@/lib/cloudinary";
 import { Plus, Pencil, Trash2, X, Save, ChevronDown, ChevronUp } from "lucide-react";
-import { LiquidButton } from "@/components/ui/liquid-glass-button";
 
 interface BlogPost {
   id: string;
@@ -133,9 +132,9 @@ export default function BlogManager() {
     <div className="max-w-4xl">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-bold font-heading">Blog Posts</h2>
-        <LiquidButton size="sm" onClick={openCreate} className="text-white border border-white/20 flex items-center gap-2">
+        <button onClick={openCreate} className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 text-white text-xs font-mono tracking-widest uppercase hover:bg-white/10 transition-colors">
           <Plus size={14} /> New
-        </LiquidButton>
+        </button>
       </div>
 
       {/* Form */}
@@ -233,14 +232,13 @@ export default function BlogManager() {
           {error && <p className="text-red-400 text-xs font-mono mt-3">{error}</p>}
 
           <div className="flex gap-3 mt-5">
-            <LiquidButton
-              size="sm"
+            <button
               onClick={handleSave}
               disabled={saving}
-              className="text-white border border-white/20 flex items-center gap-2"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 text-white text-xs font-mono tracking-widest uppercase hover:bg-white/10 transition-colors disabled:opacity-50"
             >
               <Save size={14} /> {saving ? "Saving…" : "Save"}
-            </LiquidButton>
+            </button>
             <button onClick={cancel} className="text-sm text-neutral-500 hover:text-white transition-colors">
               Cancel
             </button>

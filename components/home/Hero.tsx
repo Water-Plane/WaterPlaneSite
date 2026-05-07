@@ -2,7 +2,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { TextScramble } from '@/components/ui/text-scramble';
-import { LiquidButton } from '@/components/ui/liquid-glass-button';
 import { Waves } from '@/components/ui/wave-background';
 import { ArrowDownRight } from 'lucide-react';
 import Image from 'next/image';
@@ -81,21 +80,15 @@ export default function Hero() {
                     transition={{ delay: 0.9, duration: 0.8 }}
                     className="mt-10 flex flex-wrap gap-4 justify-center"
                 >
-                    <a href="/services" className="inline-block">
-                        <LiquidButton
-                            size="lg"
-                            className="text-white border border-white/30 flex items-center gap-2 px-8"
-                        >
-                            See What We Do <ArrowDownRight size={18} />
-                        </LiquidButton>
+                    <a href="/services">
+                        <button className="flex items-center gap-2 px-8 py-3 rounded-full border border-white/30 text-white text-sm font-mono tracking-widest uppercase hover:bg-white/10 transition-colors">
+                            See What We Do <ArrowDownRight size={16} />
+                        </button>
                     </a>
-                    <a href="/work" className="inline-block">
-                        <LiquidButton
-                            size="lg"
-                            className="text-white/70 border border-white/15 flex items-center gap-2 px-8 hover:text-white hover:border-white/30 transition-colors"
-                        >
+                    <a href="/work">
+                        <button className="flex items-center gap-2 px-8 py-3 rounded-full border border-white/15 text-white/60 text-sm font-mono tracking-widest uppercase hover:border-white/30 hover:text-white transition-colors">
                             Our Work
-                        </LiquidButton>
+                        </button>
                     </a>
                 </motion.div>
             </div>

@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { useAuth } from "@/contexts/AuthContext";
-import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import { Entropy } from "@/components/ui/entropy";
 import { TextScramble } from "@/components/ui/text-scramble";
 
@@ -115,14 +114,13 @@ export default function LoginForm() {
               <p className="text-red-400 text-xs font-mono">{error}</p>
             )}
 
-            <LiquidButton
+            <button
               type="submit"
-              size="lg"
               disabled={submitting}
-              className="w-full text-white border border-white/20 mt-2"
+              className="w-full mt-2 py-3 rounded-full border border-white/20 text-white text-sm font-mono tracking-widest uppercase hover:bg-white/10 transition-colors disabled:opacity-50"
             >
               {submitting ? "Verifying..." : "Enter"}
-            </LiquidButton>
+            </button>
           </form>
         </div>
       </div>
