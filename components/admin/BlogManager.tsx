@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
+import { auth } from "@/lib/firebase";
 import { uploadToCloudinary } from "@/lib/cloudinary";
 import { Plus, Pencil, Trash2, X, Save, ChevronDown, ChevronUp } from "lucide-react";
 
@@ -105,10 +106,13 @@ export default function BlogManager() {
         tags: tagsInput.split(",").map((t) => t.trim()).filter(Boolean),
       };
 
+      const token = await auth.currentUser?.getIdToken();
+      const headers = { "Content-Type": "application/json", "Authorization": `Bearer ${token}` };
+
       if (editing) {
-        await supabase.from("blog_posts").update(payload).eq("id", editing.id);
+        await fetch(`/api/admin/blogs/${editing.id}`, { method: "PATCH", headers, body: JSON.stringify(payload) });
       } else {
-        await supabase.from("blog_posts").insert(payload);
+        await fetch("/api/admin/blogs", { method: "POST", headers, body: JSON.stringify(payload) });
       }
 
       await load();
@@ -122,7 +126,11 @@ export default function BlogManager() {
 
   async function handleDelete(id: string) {
     if (!confirm("Delete this blog post? This cannot be undone.")) return;
-    await supabase.from("blog_posts").delete().eq("id", id);
+    const token = await auth.currentUser?.getIdToken();
+    await fetch(`/api/admin/blogs/${id}`, {
+      method: "DELETE",
+      headers: { "Authorization": `Bearer ${token}` },
+    });
     await load();
   }
 

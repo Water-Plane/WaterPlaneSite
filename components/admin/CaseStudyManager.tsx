@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
+import { auth } from "@/lib/firebase";
 import { uploadToCloudinary } from "@/lib/cloudinary";
 import { Plus, Pencil, Trash2, X, Save, ChevronDown, ChevronUp } from "lucide-react";
 
@@ -154,10 +155,13 @@ export default function CaseStudyManager() {
         testimonials: testimonialsMigrated,
       };
 
+      const token = await auth.currentUser?.getIdToken();
+      const headers = { "Content-Type": "application/json", "Authorization": `Bearer ${token}` };
+
       if (editing) {
-        await supabase.from("case_studies").update(payload).eq("id", editing.id);
+        await fetch(`/api/admin/case-studies/${editing.id}`, { method: "PATCH", headers, body: JSON.stringify(payload) });
       } else {
-        await supabase.from("case_studies").insert(payload);
+        await fetch("/api/admin/case-studies", { method: "POST", headers, body: JSON.stringify(payload) });
       }
 
       await load();
@@ -171,7 +175,11 @@ export default function CaseStudyManager() {
 
   async function handleDelete(id: string) {
     if (!confirm("Delete this case study? This cannot be undone.")) return;
-    await supabase.from("case_studies").delete().eq("id", id);
+    const token = await auth.currentUser?.getIdToken();
+    await fetch(`/api/admin/case-studies/${id}`, {
+      method: "DELETE",
+      headers: { "Authorization": `Bearer ${token}` },
+    });
     await load();
   }
 
