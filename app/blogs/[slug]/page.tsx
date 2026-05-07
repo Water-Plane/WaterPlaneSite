@@ -1,6 +1,7 @@
 import React from "react";
 import { supabase } from "@/lib/supabase";
 import Image from "next/image";
+import ReactMarkdown from "react-markdown";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
@@ -89,38 +90,18 @@ export default async function BlogPostPage({
           <span className="text-sm font-mono text-neutral-500">{post.published_at}</span>
         </div>
 
-        {/* Content rendered as plain text with newlines — for full markdown, add a parser */}
-        <div className="prose prose-invert prose-lg max-w-none">
-          {post.content.split("\n").map((line, i) => {
-            if (line.startsWith("### ")) {
-              return <h3 key={i} className="text-xl font-bold font-heading mt-8 mb-3">{line.slice(4)}</h3>;
-            }
-            if (line.startsWith("## ")) {
-              return <h2 key={i} className="text-2xl font-bold font-heading mt-10 mb-4">{line.slice(3)}</h2>;
-            }
-            if (line.startsWith("# ")) {
-              return <h1 key={i} className="text-3xl font-bold font-heading mt-10 mb-4">{line.slice(2)}</h1>;
-            }
-            if (line.startsWith("> ")) {
-              return (
-                <blockquote key={i} className="border-l-2 border-neutral-600 pl-4 my-4 text-neutral-400 italic">
-                  {line.slice(2)}
-                </blockquote>
-              );
-            }
-            if (line.startsWith("- ")) {
-              return <li key={i} className="ml-4 text-neutral-300 list-disc">{line.slice(2)}</li>;
-            }
-            if (line === "") {
-              return <div key={i} className="h-4" />;
-            }
-            return (
-              <p key={i} className="text-neutral-300 leading-relaxed">
-                {line}
-              </p>
-            );
-          })}
-        </div>
+        <ReactMarkdown
+          className="prose prose-invert prose-lg max-w-none
+            prose-headings:font-heading prose-headings:font-bold
+            prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl
+            prose-p:text-neutral-300 prose-p:leading-relaxed
+            prose-strong:text-white
+            prose-blockquote:border-l-4 prose-blockquote:border-neutral-600 prose-blockquote:text-neutral-400 prose-blockquote:not-italic
+            prose-li:text-neutral-300
+            prose-a:text-white prose-a:underline"
+        >
+          {post.content}
+        </ReactMarkdown>
 
         <div className="mt-16 pt-8 border-t border-neutral-800">
           <a
