@@ -51,14 +51,12 @@ export default async function WorkPage() {
             >
               <Link href={`/work/${project.slug}`} className="block w-full">
                 <div className="relative aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl md:rounded-3xl border border-white/10 bg-neutral-900">
-                  <div className="absolute inset-0 z-10 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
-
                   {project.hero_image && (
                     <Image
                       src={project.hero_image}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover grayscale brightness-[0.4] blur-[2px] group-hover:grayscale-0 group-hover:brightness-90 group-hover:blur-0 group-hover:scale-105 transition-all duration-700"
                     />
                   )}
 
