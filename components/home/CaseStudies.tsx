@@ -30,7 +30,7 @@ export default function CaseStudies() {
                                         src={project.heroImage}
                                         alt={project.title}
                                         fill
-                                        className="object-cover grayscale brightness-[0.4] group-hover:grayscale-0 group-hover:brightness-90 transition-all duration-700"
+                                        className="object-cover grayscale brightness-[0.4] blur-[2px] group-hover:grayscale-0 group-hover:brightness-90 group-hover:blur-0 transition-all duration-700"
                                     />
                                 </div>
                                 <div className="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black/90 to-transparent flex flex-col items-start gap-4">
