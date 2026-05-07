@@ -5,6 +5,12 @@ import { supabase } from "@/lib/supabase";
 import { uploadToCloudinary } from "@/lib/cloudinary";
 import { Plus, Pencil, Trash2, X, Save, ChevronDown, ChevronUp } from "lucide-react";
 
+interface Testimonial {
+  content: string;
+  author: string;
+  image: string;
+}
+
 interface CaseStudy {
   id: string;
   slug: string;
@@ -15,9 +21,12 @@ interface CaseStudy {
   hero_image: string;
   content: string;
   gallery_images: string[];
+  testimonials: Testimonial[];
 }
 
-const EMPTY: Omit<CaseStudy, "id"> = {
+type FormData = Omit<CaseStudy, "id">;
+
+const EMPTY: FormData = {
   slug: "",
   title: "",
   category: "",
@@ -26,6 +35,7 @@ const EMPTY: Omit<CaseStudy, "id"> = {
   hero_image: "",
   content: "",
   gallery_images: [],
+  testimonials: [],
 };
 
 export default function CaseStudyManager() {
@@ -33,9 +43,10 @@ export default function CaseStudyManager() {
   const [loading, setLoading] = useState(true);
   const [editing, setEditing] = useState<CaseStudy | null>(null);
   const [creating, setCreating] = useState(false);
-  const [form, setForm] = useState<Omit<CaseStudy, "id">>(EMPTY);
+  const [form, setForm] = useState<FormData>(EMPTY);
   const [heroFile, setHeroFile] = useState<File | null>(null);
   const [galleryFiles, setGalleryFiles] = useState<File[]>([]);
+  const [testimonialImageFiles, setTestimonialImageFiles] = useState<(File | null)[]>([]);
   const [saving, setSaving] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [error, setError] = useState("");
@@ -45,7 +56,7 @@ export default function CaseStudyManager() {
     const { data } = await supabase
       .from("case_studies")
       .select("*")
-      .order("date", { ascending: false });
+      .order("created_at", { ascending: true });
     setItems(data ?? []);
     setLoading(false);
   }
@@ -56,6 +67,7 @@ export default function CaseStudyManager() {
     setForm(EMPTY);
     setHeroFile(null);
     setGalleryFiles([]);
+    setTestimonialImageFiles([]);
     setEditing(null);
     setCreating(true);
     setError("");
@@ -71,9 +83,11 @@ export default function CaseStudyManager() {
       hero_image: item.hero_image,
       content: item.content,
       gallery_images: item.gallery_images ?? [],
+      testimonials: item.testimonials ?? [],
     });
     setHeroFile(null);
     setGalleryFiles([]);
+    setTestimonialImageFiles((item.testimonials ?? []).map(() => null));
     setEditing(item);
     setCreating(false);
     setError("");
@@ -83,6 +97,24 @@ export default function CaseStudyManager() {
     setEditing(null);
     setCreating(false);
     setError("");
+  }
+
+  function addTestimonial() {
+    setForm((f) => ({ ...f, testimonials: [...f.testimonials, { content: "", author: "", image: "" }] }));
+    setTestimonialImageFiles((prev) => [...prev, null]);
+  }
+
+  function removeTestimonial(i: number) {
+    setForm((f) => ({ ...f, testimonials: f.testimonials.filter((_, idx) => idx !== i) }));
+    setTestimonialImageFiles((prev) => prev.filter((_, idx) => idx !== i));
+  }
+
+  function updateTestimonial(i: number, field: keyof Testimonial, value: string) {
+    setForm((f) => {
+      const updated = [...f.testimonials];
+      updated[i] = { ...updated[i], [field]: value };
+      return { ...f, testimonials: updated };
+    });
   }
 
   async function handleSave() {
@@ -104,10 +136,22 @@ export default function CaseStudyManager() {
         galleryUrls = [...galleryUrls, ...uploaded.map((u) => u.url)];
       }
 
+      const testimonialsMigrated = await Promise.all(
+        form.testimonials.map(async (t, i) => {
+          const file = testimonialImageFiles[i];
+          if (file) {
+            const { url } = await uploadToCloudinary(file, "waterplane/case-studies/testimonials");
+            return { ...t, image: url };
+          }
+          return t;
+        })
+      );
+
       const payload = {
         ...form,
         hero_image: heroUrl,
         gallery_images: galleryUrls,
+        testimonials: testimonialsMigrated,
       };
 
       if (editing) {
@@ -154,12 +198,11 @@ export default function CaseStudyManager() {
             </button>
           </div>
 
+          {/* Core fields */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {(["title", "slug", "category", "author", "date"] as const).map((field) => (
               <div key={field} className="flex flex-col gap-1">
-                <label className="text-xs font-mono text-neutral-500 uppercase tracking-wider">
-                  {field}
-                </label>
+                <label className="text-xs font-mono text-neutral-500 uppercase tracking-wider">{field}</label>
                 <input
                   value={form[field]}
                   onChange={(e) => setForm({ ...form, [field]: e.target.value })}
@@ -169,9 +212,7 @@ export default function CaseStudyManager() {
             ))}
 
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-mono text-neutral-500 uppercase tracking-wider">
-                Hero Image
-              </label>
+              <label className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Hero Image</label>
               <input
                 type="file"
                 accept="image/*"
@@ -184,9 +225,7 @@ export default function CaseStudyManager() {
             </div>
 
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-mono text-neutral-500 uppercase tracking-wider">
-                Gallery Images (add more)
-              </label>
+              <label className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Gallery Images (add more)</label>
               <input
                 type="file"
                 accept="image/*"
@@ -194,19 +233,77 @@ export default function CaseStudyManager() {
                 onChange={(e) => setGalleryFiles(Array.from(e.target.files ?? []))}
                 className="text-sm text-neutral-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border file:border-neutral-600 file:text-xs file:bg-black file:text-white hover:file:bg-neutral-900"
               />
+              {form.gallery_images.length > 0 && (
+                <p className="text-xs text-neutral-500">{form.gallery_images.length} existing image(s)</p>
+              )}
             </div>
           </div>
 
+          {/* Content */}
           <div className="flex flex-col gap-1 mt-4">
-            <label className="text-xs font-mono text-neutral-500 uppercase tracking-wider">
-              Content (Markdown)
-            </label>
+            <label className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Content (Markdown)</label>
             <textarea
               value={form.content}
               onChange={(e) => setForm({ ...form, content: e.target.value })}
               rows={10}
               className="bg-black border border-neutral-700 rounded-lg px-3 py-2 text-white text-sm font-mono focus:outline-none focus:border-white transition-colors resize-y"
+              placeholder={"### 1. The Challenge\nYour story here...\n\n### 2. The Execution\n- **Bold item**\n\n> Blockquote\n\n### 3. The Result"}
             />
+          </div>
+
+          {/* Testimonials */}
+          <div className="mt-6">
+            <div className="flex items-center justify-between mb-3">
+              <label className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Testimonials</label>
+              <button
+                type="button"
+                onClick={addTestimonial}
+                className="flex items-center gap-1 text-xs font-mono text-neutral-400 hover:text-white border border-neutral-700 rounded-full px-3 py-1 transition-colors"
+              >
+                <Plus size={12} /> Add
+              </button>
+            </div>
+            {form.testimonials.map((t, i) => (
+              <div key={i} className="bg-black border border-neutral-800 rounded-xl p-4 mb-3">
+                <div className="flex justify-between items-center mb-3">
+                  <span className="text-xs font-mono text-neutral-600">Testimonial {i + 1}</span>
+                  <button type="button" onClick={() => removeTestimonial(i)} className="text-neutral-600 hover:text-red-400">
+                    <X size={14} />
+                  </button>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <textarea
+                    value={t.content}
+                    onChange={(e) => updateTestimonial(i, "content", e.target.value)}
+                    rows={2}
+                    placeholder="Quote..."
+                    className="bg-neutral-900 border border-neutral-700 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-white transition-colors resize-none"
+                  />
+                  <input
+                    value={t.author}
+                    onChange={(e) => updateTestimonial(i, "author", e.target.value)}
+                    placeholder="Author name / title"
+                    className="bg-neutral-900 border border-neutral-700 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-white transition-colors"
+                  />
+                  <div className="flex flex-col gap-1">
+                    <label className="text-xs text-neutral-600 font-mono">Avatar image</label>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => {
+                        const updated = [...testimonialImageFiles];
+                        updated[i] = e.target.files?.[0] ?? null;
+                        setTestimonialImageFiles(updated);
+                      }}
+                      className="text-sm text-neutral-400 file:mr-3 file:py-1 file:px-2 file:rounded file:border file:border-neutral-700 file:text-xs file:bg-black file:text-white"
+                    />
+                    {t.image && !testimonialImageFiles[i] && (
+                      <p className="text-xs text-neutral-600 truncate">{t.image}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
           {error && <p className="text-red-400 text-xs font-mono mt-3">{error}</p>}
@@ -230,7 +327,7 @@ export default function CaseStudyManager() {
       {loading ? (
         <p className="text-neutral-500 font-mono text-sm">Loading…</p>
       ) : items.length === 0 ? (
-        <p className="text-neutral-500 font-mono text-sm">No case studies yet. Create one above.</p>
+        <p className="text-neutral-500 font-mono text-sm">No case studies yet.</p>
       ) : (
         <div className="flex flex-col gap-2">
           {items.map((item) => (
@@ -238,13 +335,10 @@ export default function CaseStudyManager() {
               <div className="flex items-center justify-between px-5 py-4">
                 <div>
                   <p className="font-medium">{item.title}</p>
-                  <p className="text-xs text-neutral-500 font-mono">{item.category} · {item.date}</p>
+                  <p className="text-xs text-neutral-500 font-mono">{item.category} · {item.date} · {(item.testimonials ?? []).length} testimonial(s)</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => setExpanded(expanded === item.id ? null : item.id)}
-                    className="text-neutral-400 hover:text-white p-1"
-                  >
+                  <button onClick={() => setExpanded(expanded === item.id ? null : item.id)} className="text-neutral-400 hover:text-white p-1">
                     {expanded === item.id ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                   </button>
                   <button onClick={() => openEdit(item)} className="text-neutral-400 hover:text-white p-1">
@@ -256,10 +350,11 @@ export default function CaseStudyManager() {
                 </div>
               </div>
               {expanded === item.id && (
-                <div className="px-5 pb-4 border-t border-neutral-800 pt-4">
-                  <p className="text-xs text-neutral-400 font-mono mb-1">Slug: {item.slug}</p>
-                  <p className="text-xs text-neutral-400 font-mono mb-1">Author: {item.author}</p>
+                <div className="px-5 pb-4 border-t border-neutral-800 pt-4 space-y-1">
+                  <p className="text-xs text-neutral-400 font-mono">Slug: {item.slug}</p>
+                  <p className="text-xs text-neutral-400 font-mono">Author: {item.author}</p>
                   <p className="text-xs text-neutral-400 font-mono truncate">Hero: {item.hero_image}</p>
+                  <p className="text-xs text-neutral-400 font-mono">Gallery: {(item.gallery_images ?? []).length} image(s)</p>
                 </div>
               )}
             </div>
