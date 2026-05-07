@@ -25,16 +25,14 @@ export default function CaseStudies() {
                     {CASE_STUDIES.map((project, i) => (
                         <div key={i} className="group relative h-[60vh] w-[85vw] md:w-[60vw] lg:w-[40vw] flex-shrink-0 overflow-hidden rounded-3xl bg-neutral-900 border border-neutral-800">
                             <Link href={`/work/${project.slug}`} className="block h-full w-full">
-                                <motion.div
-                                    className="absolute inset-0 scale-110 group-hover:scale-100 transition-transform duration-700"
-                                >
+                                <div className="absolute inset-0 scale-110 group-hover:scale-100 transition-transform duration-700">
                                     <Image
                                         src={project.heroImage}
                                         alt={project.title}
                                         fill
-                                        className="object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500"
+                                        className="object-cover grayscale brightness-[0.4] group-hover:grayscale-0 group-hover:brightness-90 transition-all duration-700"
                                     />
-                                </motion.div>
+                                </div>
                                 <div className="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black/90 to-transparent flex flex-col items-start gap-4">
                                     <div>
                                         <span className="text-sm font-medium text-neutral-400 uppercase tracking-widest mb-2 block">{project.category}</span>
