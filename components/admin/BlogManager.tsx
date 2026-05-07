@@ -30,6 +30,7 @@ const EMPTY: Omit<BlogPost, "id"> = {
   content: "",
   tags: [],
   published: false,
+  featured_home: false,
 };
 
 export default function BlogManager() {
