@@ -53,14 +53,14 @@ export default function Hero() {
                 </motion.div>
 
                 {/* Main heading */}
-                <h1 className="leading-[0.9] font-black font-heading mb-6 flex flex-col items-center gap-3">
+                <h1 className="leading-none font-black font-heading mb-6 flex flex-col items-center gap-4">
                     <TextScramble
                         text="DIGITAL GROWTH"
-                        textClassName="text-[11vw] md:text-[6.5vw] font-black font-heading leading-[0.9] tracking-wide text-white"
+                        textClassName="text-[11vw] md:text-[7vw] font-black font-heading leading-none tracking-[0.08em] text-white"
                     />
                     <TextScramble
                         text="FOR THE NEW INTERNET"
-                        textClassName="text-[7.5vw] md:text-[4.8vw] font-black font-heading leading-[0.9] tracking-wide text-white"
+                        textClassName="text-[7vw] md:text-[4.5vw] font-black font-heading leading-none tracking-[0.1em] text-white/90"
                     />
                 </h1>
 
