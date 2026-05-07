@@ -2,7 +2,6 @@ import Hero from "@/components/home/Hero";
 import Services from "@/components/home/Services";
 import CaseStudies from "@/components/home/CaseStudies";
 import Testimonials from "@/components/home/Testimonials";
-import SocialDock from "@/components/home/SocialDock";
 import { supabase } from "@/lib/supabase";
 
 export const revalidate = 0;
@@ -32,7 +31,6 @@ export default async function Home() {
       <Services />
       <CaseStudies projects={caseStudies ?? []} />
       <Testimonials testimonials={testimonials} />
-      <SocialDock />
     </div>
   );
 }

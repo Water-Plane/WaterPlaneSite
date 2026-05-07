@@ -36,7 +36,7 @@ export default function Testimonials({ testimonials }: { testimonials: Testimoni
                     </p>
                 </div>
 
-                <motion.div style={{ x }} className="flex gap-8 px-12 pt-32 md:pl-[30vw]">
+                <motion.div style={{ x }} className="flex gap-8 px-12 md:pl-[30vw]">
                     {allTestimonials.map((t, i) => (
                         <div key={i} className="group relative w-[80vw] md:w-[45vw] lg:w-[28vw] flex-shrink-0 bg-neutral-100 dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between gap-5">
                             <div className="flex items-center justify-between">
