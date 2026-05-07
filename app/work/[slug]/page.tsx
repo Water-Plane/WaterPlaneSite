@@ -32,11 +32,6 @@ async function getCaseStudy(slug: string): Promise<CaseStudy | null> {
   return data ?? null;
 }
 
-export async function generateStaticParams() {
-  const { data } = await supabase.from("case_studies").select("slug");
-  return (data ?? []).map((row: { slug: string }) => ({ slug: row.slug }));
-}
-
 export async function generateMetadata({
   params,
 }: {
@@ -48,6 +43,7 @@ export async function generateMetadata({
   return { title: project.title, description: project.category };
 }
 
+export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export default async function CaseStudyPage({
