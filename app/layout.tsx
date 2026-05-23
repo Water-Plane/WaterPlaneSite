@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Instrument_Serif, Barlow } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -16,6 +16,17 @@ const clash = localFont({
   src: "./fonts/ClashDisplay-Variable.woff2",
   variable: "--font-clash",
   weight: "200 700",
+});
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
+});
+const barlow = Barlow({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-barlow",
 });
 
 export const metadata: Metadata = {
@@ -50,7 +61,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.variable, clash.variable, "bg-black text-white antialiased font-sans")}>
+      <body className={cn(inter.variable, clash.variable, instrumentSerif.variable, barlow.variable, "bg-black text-white antialiased font-sans")}>
         <PixelCursorTrail />
         <ImageProtection />
         <SmoothScroll>

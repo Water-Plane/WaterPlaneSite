@@ -1,114 +1,220 @@
 "use client";
-import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { TextScramble } from '@/components/ui/text-scramble';
-import { Waves } from '@/components/ui/wave-background';
-import { ArrowDownRight } from 'lucide-react';
-import Image from 'next/image';
+import React from "react";
+import { motion } from "framer-motion";
+import FadingVideo from "@/components/ui/FadingVideo";
+import BlurText from "@/components/ui/BlurText";
+
+function ArrowUpRight({ className }: { className?: string }) {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M7 17L17 7" />
+      <path d="M7 7h10v10" />
+    </svg>
+  );
+}
+
+function Play({ className }: { className?: string }) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+    >
+      <polygon points="6 4 20 12 6 20 6 4" />
+    </svg>
+  );
+}
+
+const fadeUp = {
+  hidden: { filter: "blur(10px)", opacity: 0, y: 20 },
+  visible: (delay: number) => ({
+    filter: "blur(0px)",
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut", delay },
+  }),
+};
+
+const partners = ["Kunal Eddits", "Pukaar", "Stitch & Soul", "Vivo", "More"];
 
 export default function Hero() {
-    const { scrollY } = useScroll();
-    const bgOpacity = useTransform(scrollY, [0, 400], [1, 0]);
+  return (
+    <section className="relative h-screen w-full overflow-hidden bg-black">
+      {/* Background Video – 120% size, top-anchored, centred */}
+      <FadingVideo
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_080021_d598092b-c4c2-4e53-8e46-94cf9064cd50.mp4"
+        className="absolute left-1/2 top-0 -translate-x-1/2 object-cover object-top z-0"
+        style={{ width: "120%", height: "120%" }}
+      />
 
-    return (
-        <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black text-white px-4">
+      {/* z-10 content layer */}
+      <div className="relative z-10 flex flex-col h-full">
+        {/* ── Hero centred content ── */}
+        <div className="flex-1 flex flex-col items-center justify-center pt-24 px-4">
+          {/* Badge */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            custom={0.4}
+            variants={fadeUp}
+            className="liquid-glass rounded-full flex items-center gap-2 px-1.5 py-1.5 mb-6"
+          >
+            <span className="bg-white text-black px-3 py-1 rounded-full text-xs font-semibold font-body">
+              New
+            </span>
+            <span className="text-sm text-white/90 pr-3 font-body">
+              AI-Powered Growth Agency → Campaigns Live 2025
+            </span>
+          </motion.div>
 
-            {/* Wave background */}
-            <motion.div
-                className="absolute inset-0 z-0"
-                style={{ opacity: bgOpacity }}
+          {/* Brand Name */}
+          <BlurText
+            text="WaterPlane"
+            className="text-7xl md:text-8xl lg:text-[9rem] font-serif-heading italic text-white leading-[0.85] max-w-4xl text-center tracking-[-4px]"
+          />
+
+          {/* Tagline */}
+          <motion.p
+            initial="hidden"
+            animate="visible"
+            custom={0.7}
+            variants={fadeUp}
+            className="mt-3 text-lg md:text-xl text-white/90 font-serif-heading italic text-center tracking-tight"
+          >
+            Digital Growth For The New Internet
+          </motion.p>
+
+          {/* Description */}
+          <motion.p
+            initial="hidden"
+            animate="visible"
+            custom={0.9}
+            variants={fadeUp}
+            className="mt-3 text-sm md:text-base text-white/70 max-w-xl font-body font-light leading-relaxed text-center"
+          >
+            Strategy, high-fidelity content, and AI-driven growth for ambitious
+            brands. We build digital ecosystems that scale.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            custom={1.2}
+            variants={fadeUp}
+            className="flex items-center gap-6 mt-6"
+          >
+            <a
+              href="/work"
+              className="liquid-glass-strong rounded-full px-5 py-2.5 text-sm font-medium text-white flex items-center gap-2 font-body"
             >
-                <Waves
-                    strokeColor="rgba(255,255,255,0.12)"
-                    backgroundColor="#000000"
-                />
-            </motion.div>
+              See Our Work <ArrowUpRight className="h-5 w-5" />
+            </a>
+            <a
+              href="/services"
+              className="text-white flex items-center gap-2 text-sm font-body"
+            >
+              View Services <Play className="h-4 w-4" />
+            </a>
+          </motion.div>
 
-            {/* Radial vignette so text stays readable at edges */}
-            <div
-                className="absolute inset-0 z-[1] pointer-events-none"
-                style={{
-                    background: 'radial-gradient(ellipse 80% 60% at 50% 50%, transparent 30%, rgba(0,0,0,0.6) 100%)',
-                }}
-            />
-
-            {/* Main Content */}
-            <div className="container mx-auto flex flex-col items-center text-center z-10 w-full">
-
-                {/* Logo */}
-                <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="mb-10 relative w-[72vw] h-[22vw] md:w-[860px] md:h-[180px]"
-                >
-                    <Image
-                        src="/logos/waterplane-white_text_blackBG.svg"
-                        alt="WaterPlane"
-                        fill
-                        className="object-contain"
-                        priority
-                    />
-                </motion.div>
-
-                {/* Main heading */}
-                <h1 className="leading-none font-black font-heading mb-6 flex flex-col items-center gap-4">
-                    <TextScramble
-                        text="DIGITAL GROWTH"
-                        textClassName="text-[11vw] md:text-[7vw] font-black font-heading leading-none tracking-[0.08em] text-white"
-                    />
-                    <TextScramble
-                        text="FOR THE NEW INTERNET"
-                        textClassName="text-[7vw] md:text-[4.5vw] font-black font-heading leading-none tracking-[0.1em] text-white/90"
-                    />
-                </h1>
-
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6, duration: 0.8 }}
-                    className="text-base md:text-lg font-medium text-white/60 max-w-md text-center mt-2 leading-relaxed"
-                >
-                    Strategy, high-fidelity content, and AI-driven growth
-                    for ambitious brands.
-                </motion.p>
-
-                {/* CTAs */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.9, duration: 0.8 }}
-                    className="mt-10 flex flex-wrap gap-4 justify-center"
-                >
-                    <a href="/services">
-                        <button className="flex items-center gap-2 px-8 py-3 rounded-full border border-white/30 text-white text-sm font-mono tracking-widest uppercase hover:bg-white/10 transition-colors">
-                            See What We Do <ArrowDownRight size={16} />
-                        </button>
-                    </a>
-                    <a href="/work">
-                        <button className="flex items-center gap-2 px-8 py-3 rounded-full border border-white/15 text-white/60 text-sm font-mono tracking-widest uppercase hover:border-white/30 hover:text-white transition-colors">
-                            Our Work
-                        </button>
-                    </a>
-                </motion.div>
+          {/* Stats row */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            custom={1.3}
+            variants={fadeUp}
+            className="flex items-stretch gap-4 mt-8"
+          >
+            {/* Stat 1 */}
+            <div className="liquid-glass p-5 w-[220px] rounded-[1.25rem] flex flex-col gap-3">
+              {/* Clock icon */}
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg>
+              <div>
+                <p className="text-4xl font-serif-heading italic text-white tracking-[-1px] leading-none">
+                  3x
+                </p>
+                <p className="text-xs text-white font-body font-light mt-2">
+                  Average Brand Growth Rate
+                </p>
+              </div>
             </div>
 
-            {/* Scroll indicator */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.2, duration: 1 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40"
-            >
-                <span className="text-xs font-mono uppercase tracking-widest">Scroll</span>
-                <div className="w-[1px] h-12 bg-white/20 overflow-hidden">
-                    <motion.div
-                        className="w-full h-1/2 bg-white"
-                        animate={{ y: ["-100%", "200%"] }}
-                        transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-                    />
-                </div>
-            </motion.div>
-        </section>
-    );
+            {/* Stat 2 */}
+            <div className="liquid-glass p-5 w-[220px] rounded-[1.25rem] flex flex-col gap-3">
+              {/* Globe icon */}
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              </svg>
+              <div>
+                <p className="text-4xl font-serif-heading italic text-white tracking-[-1px] leading-none">
+                  12+
+                </p>
+                <p className="text-xs text-white font-body font-light mt-2">
+                  Brands Transformed
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* ── Partners row ── */}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          custom={1.4}
+          variants={fadeUp}
+          className="flex flex-col items-center gap-4 pb-8"
+        >
+          <span className="liquid-glass rounded-full px-3.5 py-1 text-xs font-medium text-white font-body">
+            Trusted by ambitious brands across India
+          </span>
+          <div className="flex items-center gap-8 md:gap-12 overflow-x-auto no-scrollbar px-4">
+            {partners.map((name) => (
+              <span
+                key={name}
+                className="font-serif-heading italic text-white text-xl md:text-2xl tracking-tight whitespace-nowrap"
+              >
+                {name}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
 }

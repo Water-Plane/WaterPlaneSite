@@ -18,6 +18,8 @@ const config: Config = {
             fontFamily: {
                 sans: ["var(--font-inter)", "sans-serif"],
                 heading: ["var(--font-clash)", "sans-serif"],
+                "serif-heading": ["var(--font-instrument-serif)", "serif"],
+                body: ["var(--font-barlow)", "sans-serif"],
             },
             colors: {
                 border: "hsl(var(--border))",
